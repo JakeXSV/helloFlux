@@ -1,3 +1,6 @@
+var React = require('react');
+var Comment = require('./Comment');
+
 var CommentList = React.createClass({
     render: function() {
         var comments = this.props.data.map(function(e){
@@ -14,3 +17,5 @@ var CommentList = React.createClass({
         );
     }
 });
+
+module.exports = CommentList;

@@ -1,3 +1,7 @@
+var React = require('react');
+var CommentList = require('./CommentList');
+var CommentForm = require('./CommentForm');
+
 var CommentBox = React.createClass({
     handleCommentSubmit: function(comment) {
         /* Save immediately locally */
@@ -52,7 +56,5 @@ var CommentBox = React.createClass({
         );
     }
 });
-React.render(
-    <CommentBox url="comments.json" pollInterval={3000} />,
-    document.getElementById('content')
-);
+
+module.exports = CommentBox;

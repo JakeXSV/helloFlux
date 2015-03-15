@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Flux tinkering",
   "repository": "https://github.com/jakehp/helloFlux",
-  "main": "js/app.js",
+  "main": "public/src/js/app.js",
   "dependencies": {
     "flux": "^2.0.1",
     "keymirror": "~0.1.0",
@@ -20,7 +20,7 @@
     "watchify": "^2.1.1"
   },
   "scripts": {
-    "start": "watchify -o js/bundle.js -v -d ."
+    "start": "watchify -o public/dist/js/bundle.js -v -d ."
   },
   "browserify": {
     "transform": [
