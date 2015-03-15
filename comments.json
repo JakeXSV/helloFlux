@@ -1,0 +1,22 @@
+[
+    {
+        "author": "Pete Hunt",
+        "text": "Hey there!"
+    },
+    {
+        "author": "Derp Derpson",
+        "text": "Yo Pete!"
+    },
+    {
+        "author": "Jake",
+        "text": "hello world"
+    },
+    {
+        "author": "Jake",
+        "text": "Optimistic saving is kinda nifty."
+    },
+    {
+        "author": "jake",
+        "text": "hello flux"
+    }
+]
