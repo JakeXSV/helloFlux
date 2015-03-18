@@ -1,19 +1,48 @@
-var AppDispatcher = require('./AppDispatcher');
+var AppDispatcher = require('../dispatcher/AppDispatcher');
 var EventEmitter = require('events').EventEmitter;
-var CommentConstants = require('./CommentConstants');
+var CommentConstants = require('../constants/CommentConstants');
 var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
-var _comments = {};
+var _comments = [];
+
+/*
+ $.ajax({
+     url: this.props.url,
+     dataType: 'json',
+     type: 'POST',
+     data: comment,
+     success: function(data) {
+        this.setState({data: data});
+     }.bind(this),
+     error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+     }.bind(this)
+ });
+ */
 
 function create(text, author) {
-    var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
-    _comments[id] = {
-        id: id,
+    _comments[_comments.length] = {
         text: text,
         author: author
     };
 }
+
+function getComments(){
+    $.ajax({
+        url: "comments.json",
+        dataType: 'json',
+        success: function(data) {
+            _comments = data;
+            CommentStore.emitChange();
+        },
+        error: function(xhr, status, err) {
+            console.error("CommentStore Error - " + status, err.toString());
+        }
+    });
+}
+getComments();
+setInterval(getComments, 5000);
 
 var CommentStore = assign({}, EventEmitter.prototype, {
 

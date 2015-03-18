@@ -3,11 +3,14 @@ var Comment = require('./Comment');
 
 var CommentList = React.createClass({
     render: function() {
-        var comments = this.props.data.map(function(e){
-           return (
-               <Comment data={e}/>
-           );
-        });
+        var comments;
+        if(this.props.comments !== undefined && this.props.comments.length > 0) {
+            comments = this.props.comments.map(function (e) {
+                return (
+                    <Comment data={e}/>
+                );
+            });
+        }
         return (
             <div className="commentList">
                 Hello, world! I am a CommentList.

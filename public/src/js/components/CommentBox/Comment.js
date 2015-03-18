@@ -2,13 +2,15 @@ var React = require('react');
 
 var Comment = React.createClass({
     render: function() {
+        var text = (this.props.data !== undefined && this.props.data.text !== undefined) ? this.props.data.text : "";
+        var author = (this.props.data !== undefined && this.props.data.author !== undefined) ? this.props.data.author : "";
         return (
             <div className="comment">
                 <h2 className="commentText">
-                    {this.props.data.text}
+                    {text}
                 </h2>
                 <p>
-                    &nbsp;-{this.props.data.author}
+                    &nbsp;-{author}
                 </p>
             </div>
         );
