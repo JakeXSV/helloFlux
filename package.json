@@ -5,17 +5,17 @@
   "repository": "https://github.com/jakehp/helloFlux",
   "main": "public/src/js/app.js",
   "dependencies": {
-    "flux": "^2.0.1",
+    "flux": "*",
     "keymirror": "~0.1.0",
     "object-assign": "^1.0.0",
-    "react": "^0.12.0",
+    "react": "*",
     "body-parser": "^1.4.3",
     "express": "^4.4.5"
   },
   "devDependencies": {
     "browserify": "^6.2.0",
     "envify": "^3.0.0",
-    "reactify": "^0.15.2",
+    "reactify": "*",
     "uglify-js": "~2.4.15",
     "watchify": "^2.1.1"
   },

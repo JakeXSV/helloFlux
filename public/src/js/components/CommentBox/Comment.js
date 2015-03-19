@@ -2,8 +2,8 @@ var React = require('react');
 
 var Comment = React.createClass({
     render: function() {
-        var text = (this.props.data !== undefined && this.props.data.text !== undefined) ? this.props.data.text : "";
-        var author = (this.props.data !== undefined && this.props.data.author !== undefined) ? this.props.data.author : "";
+        var text = (this.props.comment !== undefined && this.props.comment.text !== undefined) ? this.props.comment.text : "";
+        var author = (this.props.comment !== undefined && this.props.comment.author !== undefined) ? this.props.comment.author : "";
         return (
             <div className="comment">
                 <h2 className="commentText">
