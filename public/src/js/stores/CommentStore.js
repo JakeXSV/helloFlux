@@ -42,7 +42,7 @@ function getComments(){
     });
 }
 getComments();
-setInterval(getComments, 5000);
+//setInterval(getComments, 5000);
 
 var CommentStore = assign({}, EventEmitter.prototype, {
 
@@ -72,7 +72,7 @@ AppDispatcher.register(function(action) {
             text = action.text.trim();
             author = action.author;
             if (text !== '' && author !== '') {
-                create(text);
+                create(text, author);
             }
             CommentStore.emitChange();
             break;

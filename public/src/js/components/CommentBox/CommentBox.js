@@ -2,10 +2,11 @@ var React = require('react');
 var CommentList = require('./CommentList');
 var CommentForm = require('./CommentForm');
 var CommentStore = require('../../stores/CommentStore');
+var CommentActions = require('../../actions/CommentActions');
 
 var CommentBox = React.createClass({
-    handleCommentSubmit: function(){
-        console.log("comment submit!");
+    handleCommentSubmit: function(comment){
+        CommentActions.create(comment);
     },
     _onChange: function() {
         this.setState({
