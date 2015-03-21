@@ -6,26 +6,23 @@ var assign = require('object-assign');
 var CHANGE_EVENT = 'change';
 var _comments = [];
 
-/*
- $.ajax({
-     url: this.props.url,
-     dataType: 'json',
-     type: 'POST',
-     data: comment,
-     success: function(data) {
-        this.setState({data: data});
-     }.bind(this),
-     error: function(xhr, status, err) {
-        console.error(this.props.url, status, err.toString());
-     }.bind(this)
- });
- */
-
 function create(text, author) {
     _comments[_comments.length] = {
         text: text,
         author: author
     };
+}
+
+function persistComment(comment){
+    $.ajax({
+        url: '/comments.json',
+        dataType: 'json',
+        type: 'POST',
+        data: comment,
+        error: function(xhr, status, err) {
+            console.error("Error Persisting Comment - " + status + " - " + err.toString());
+        }
+    });
 }
 
 function getComments(){
@@ -42,7 +39,7 @@ function getComments(){
     });
 }
 getComments();
-//setInterval(getComments, 5000);
+setInterval(getComments, 5000);
 
 var CommentStore = assign({}, EventEmitter.prototype, {
 
@@ -72,7 +69,11 @@ AppDispatcher.register(function(action) {
             text = action.text.trim();
             author = action.author;
             if (text !== '' && author !== '') {
-                create(text, author);
+                create(text, author); //optimistic save
+                persistComment({
+                    text: text,
+                    author: author
+                })
             }
             CommentStore.emitChange();
             break;

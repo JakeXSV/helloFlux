@@ -18,5 +18,9 @@
     {
         "author": "jake",
         "text": "hello flux"
+    },
+    {
+        "text": "hello persist!",
+        "author": "jake"
     }
 ]
