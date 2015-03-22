@@ -7,7 +7,7 @@ var CommentList = React.createClass({
         if(this.props.comments !== undefined && this.props.comments.length > 0) {
             comments = this.props.comments.map(function (e) {
                 return (
-                    <Comment comment={e}/>
+                    <Comment key={e.id} comment={e}/>
                 );
             });
         }

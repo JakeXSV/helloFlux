@@ -1,26 +1,27 @@
 [
     {
-        "author": "Pete Hunt",
-        "text": "Hey there!"
+        "id": "0",
+        "text": "Hey there!",
+        "author": "Pete Hunt"
     },
     {
-        "author": "Derp Derpson",
-        "text": "Yo Pete!"
+        "id": "1",
+        "text": "Yo Pete!",
+        "author": "Derp Derpson"
     },
     {
-        "author": "Jake",
-        "text": "hello world"
+        "id": "2",
+        "text": "hello world",
+        "author": "Jake"
     },
     {
-        "author": "Jake",
-        "text": "Optimistic saving is kinda nifty."
+        "id": "3",
+        "text": "Optimistic saving is kinda nifty.",
+        "author": "Jake"
     },
     {
-        "author": "jake",
-        "text": "hello flux"
-    },
-    {
-        "text": "hello persist!",
+        "id": "4",
+        "text": "hello flux",
         "author": "jake"
     }
 ]

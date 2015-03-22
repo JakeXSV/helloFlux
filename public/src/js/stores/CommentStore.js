@@ -8,9 +8,11 @@ var _comments = [];
 
 function create(text, author) {
     _comments[_comments.length] = {
+        id: _comments.length,
         text: text,
         author: author
     };
+    return _comments[_comments.length-1];
 }
 
 function persistComment(comment){
@@ -69,11 +71,8 @@ AppDispatcher.register(function(action) {
             text = action.text.trim();
             author = action.author;
             if (text !== '' && author !== '') {
-                create(text, author); //optimistic save
-                persistComment({
-                    text: text,
-                    author: author
-                })
+                var comment = create(text, author); //optimistic save
+                persistComment(comment);
             }
             CommentStore.emitChange();
             break;
